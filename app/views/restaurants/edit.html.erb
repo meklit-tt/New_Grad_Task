@@ -1,6 +1,7 @@
 <h1>Edit Restaurant</h1>
 <%= simple_form_for @restaurant, :html => {:multipart => true} do |f| %>
    <%= f.select :category_id, @categories %>
+   <%= f.file_field :rest_img %>
    <%= f.input :name, lable: "Restaurant Name"%>
    <%= f.input :address %>
    <%= f.input :description %>

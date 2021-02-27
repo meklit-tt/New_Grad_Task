@@ -1,7 +1,22 @@
-<h2>Name: <%= @restaurant.name %></h2>
-<h2>Address: <%= @restaurant.address %></h2>
-<h2>Category: <%= @restaurant.category.name %></h2>
-<p>Description: <%= @restaurant.description %></p>
+<div class="row">
+   <div class="col-md-4">
+     <%= image_tag @restaurant.rest_img.url(:rest_show), class:"rest-show" %>
+  </div>
+
+   <div class="col-mid-8"></div>
+       <h2>Name: <%= @restaurant.name %></h2>
+       <h2>Address: <%= @restaurant.address %></h2>
+       <h2>Category: <%= @restaurant.category.name %></h2>
+       <p>Description: <%= @restaurant.description %></p>
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-4">
+
+  </div>
+</div>
+
+
 <%= link_to 'Back', root_path %>
 <% if user_signed_in? %>
 <% if @restaurant.user_id == current_user.id %>

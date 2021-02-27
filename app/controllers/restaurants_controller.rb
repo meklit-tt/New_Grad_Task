@@ -43,7 +43,7 @@ end
  end
   private
    def restaurant_params
-    params.require(:restaurant).permit(:name, :address, :description, :category_id)
+    params.require(:restaurant).permit(:name, :address, :description, :category_id, :rest_img)
    end
 
    def find_restaurant

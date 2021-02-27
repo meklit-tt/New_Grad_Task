@@ -6,10 +6,14 @@
 
 <% else %>
 
+<div class="row">
 
-
-           <% @restaurants.each do |restaurant|%>
-<h2><%= link_to restaurant.name, restaurant_path(restaurant) %></h2>
+     <% @restaurants.each do |restaurant|%>
+  <div class="col-md-3">
+       <a href="/restaurants/<%= restaurant.id %>">
+       <%= image_tag restaurant.rest_img.url(:rest_index), class:"rest" %>
+    </a>
+  </div>
 <% end %>
-
+</div>
 <% end %>
