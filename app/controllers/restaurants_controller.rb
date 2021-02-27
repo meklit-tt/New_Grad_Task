@@ -9,8 +9,13 @@ class RestaurantsController < ApplicationController
   end
 end
   def show
-
+  @restaurants= Restaurant.find(params[:id])
+  if @restaurant.reviews.blank?
+  @average_review = 0
+  else
+  @average_review = @restaurant.reviews.average(:rating).round(2)
   end
+end
   def new
     @restaurant = current_user.restaurants.build
     @categories = Category.all.map{ |c| [c.name, c.id] }
