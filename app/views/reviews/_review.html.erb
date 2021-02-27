@@ -1,0 +1,4 @@
+<p><%= review.rating %></p>
+<p><%= review.comment %></p>
+<%= link_to "Edit", edit_restaurant_review_path(review.restaurant, review), class: "btn btn-custom" %>
+<%= link_to "Delete", restaurant_review_path(review.restaurant, review), method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-custom" %>
