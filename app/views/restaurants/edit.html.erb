@@ -1,9 +1,16 @@
+<div class="col-md-6 col-md-offset-3">
+
+   <div class="edit-book-form">
+
 <h1>Edit Restaurant</h1>
-<%= simple_form_for @restaurant, :html => {:multipart => true} do |f| %>
+   <%= simple_form_for @restaurant, :html => {:multipart => true} do |f| %>
    <%= f.select :category_id, @categories %>
    <%= f.file_field :rest_img %>
    <%= f.input :name, lable: "Restaurant Name"%>
    <%= f.input :address %>
    <%= f.input :description %>
-   <%= f.button :submit %>
+   <%= f.button :submit, :class => 'btn-custom2' %>
 <% end %>
+
+   </div>
+ </div>
