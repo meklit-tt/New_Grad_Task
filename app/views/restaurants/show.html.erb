@@ -1,6 +1,11 @@
-<h2>Name <%= @restaurant.name %></h2>
-<h2>Address <%= @restaurant.address %></h2>
-<p>Description <%= @restaurant.description %></p>
+<h2>Name: <%= @restaurant.name %></h2>
+<h2>Address: <%= @restaurant.address %></h2>
+<h2>Category: <%= @restaurant.category.name %></h2>
+<p>Description: <%= @restaurant.description %></p>
 <%= link_to 'Back', root_path %>
-<%= link_to 'Edit Restaurant', edit_restaurant_path(@restaurant) %>
-<%= link_to 'Delete Restaurant', restaurant_path(@restaurant), method: :delete, data: {confirm: "Are you sure?" } %>
+<% if user_signed_in? %>
+<% if @restaurant.user_id == current_user.id %>
+  <%= link_to 'Edit Restaurant', edit_restaurant_path(@restaurant) %>
+  <%= link_to 'Delete Restaurant', restaurant_path(@restaurant), method: :delete, data: {confirm: "Are you sure?" } %>
+<% end %>
+<% end%>
