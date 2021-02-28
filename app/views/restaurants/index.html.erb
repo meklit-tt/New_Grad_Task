@@ -10,6 +10,7 @@
 
      <% @restaurants.each do |restaurant|%>
   <div class="col-md-3">
+		   <h3><%= restaurant.name%></h3>
        <a href="/restaurants/<%= restaurant.id %>">
        <%= image_tag restaurant.rest_img.url(:rest_index), class:"rest" %>
     </a>
