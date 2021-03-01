@@ -9,6 +9,7 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
    <body>
+
      <nav class="navbar navbar-default">
        <div class="container">
           <div class="navbar-header">
@@ -37,10 +38,16 @@
               <li><%= link_to "Add Restaurant", new_restaurant_path %></li>
               <% end %>
             </ul>
+            <marquee width="60%" direction="right" height="100px">
+              <p >Welcome! to Restaurant review site
+             </marquee>
         </div>
+
       </nav>
+
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
+
   <div class="container">
     <%= yield %>
     </div>

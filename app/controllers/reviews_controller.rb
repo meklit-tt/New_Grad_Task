@@ -10,6 +10,8 @@ class ReviewsController < ApplicationController
     @review.restaurant_id = @restaurant.id
     @review.user_id = current_user.id
     if @review.save
+      ReviewMailer.review_mailer(@restaurant).deliver
+      flash[:notice] = 'review created'
       redirect_to restaurant_path(@restaurant)
     else
       render 'new'

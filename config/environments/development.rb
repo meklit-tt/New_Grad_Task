@@ -11,6 +11,7 @@ Rails.application.configure do
 
   config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
   # Show full error reports.
+  config.action_mailer.delivery_method = :letter_opener_web
   config.consider_all_requests_local = false
 
   # Enable/disable caching. By default caching is disabled.
