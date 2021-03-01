@@ -1,6 +1,7 @@
 class RestaurantsController < ApplicationController
   before_action :find_restaurant, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!, only: [:new, :edit]
+  #before_action :load_rest, only: [:destroy]
 
   def index
      if params[:category].blank?
@@ -56,4 +57,7 @@ end
    def find_restaurant
      @restaurant = Restaurant.find(params[:id])
    end
-end
+   def load_rest
+      @restaurant= current_user.admin? ? Restaurant.find(params[:id]) : current_user.restaurants.find(params[:id])
+    end
+  end
