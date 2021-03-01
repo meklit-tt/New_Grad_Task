@@ -27,6 +27,8 @@ gem 'devise', '~> 4.7', '>= 4.7.3'
 
 gem 'paperclip', '~> 6.1'
 
+gem 'kaminari', '~> 1.2', '>= 1.2.1'
+
 gem 'jquery-rails', '~> 4.4'
 
 gem 'bootsnap', '>= 1.1.0', require: false

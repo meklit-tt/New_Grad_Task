@@ -52,11 +52,14 @@
 		<% if @restaurant.user_id == current_user.id %>
 
 			<%= link_to "Edit Retarant", edit_restaurant_path(@restaurant), class: "btn btn-custom" %>
+			<% end %>
+			<% end %>
+			<% if current_user.admin %>
 			<%= link_to "Delete Restaurant", restaurant_path(@restaurant), method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-custom" %>
 
 		<% end %>
 
-	<% end %>
+
 
 </div>
 
