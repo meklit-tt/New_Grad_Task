@@ -4,6 +4,15 @@ class ReviewsController < ApplicationController
   before_action :authenticate_user!, only:[:new, :edit]
   def new
     @review = Review.new
+    if current_user
+    @review = Review.where(user_id: current_user.id, restaurant_id: params[:restaurant_id]).first_or_initialize
+    if @review.id.present?
+      redirect_to restaurant_path(@restaurant)
+      flash[:notice] = 'multiple review not allowd'
+    else
+      render 'edit'
+    end
+  end
   end
   def create
     @review = Review.new(review_params)
