@@ -1,5 +1,5 @@
 <%= simple_form_for @restaurant, :html => {:multipart => true} do |f| %>
-<%= select_tag(:category_id, options_for_select(@categories), :prompt =>"select a category") %>
+<%= select_tag(:category_id, options_for_select([ [ 'Ethnic','1' ], [ 'Fast Food','2' ], [ 'Family Style' ,'3' ] ]), :prompt =>"select a category") %>
  <%= f.file_field :rest_img %>
  <%= f.input :name, lable: "Restaurant Name"%>
  <%= f.input :address %>
