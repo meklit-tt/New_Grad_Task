@@ -17,3 +17,7 @@
 //= require activestorage
 //= require turbolinks
 //= require_tree .
+import 'owl.carousel/dist/assets/owl.carousel.css';
+import 'owl.carousel';
+import JQuery from 'jquery';
+window.$ = window.JQuery = JQuery;

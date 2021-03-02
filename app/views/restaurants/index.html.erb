@@ -8,17 +8,38 @@
 	<h1>There are no restaurant added in this category</h1>
 
 <% else %>
-
+<div class="owl-carousel">
 <div class="row">
 
      <% @restaurants.each do |restaurant|%>
   <div class="col-md-3">
 		   <h3><%= restaurant.name%></h3>
-       <a href="/restaurants/<%= restaurant.id %>">
+       <a href="/restaurants/<%= restaurant.id %>">click to review
        <%= image_tag restaurant.rest_img.url(:rest_index), class:"rest" %>
     </a>
   </div>
 <% end %>
 </div>
+</div>
+<% end %>
 
+<%= content_for(:after_js) do %>
+<script>
+$(document).ready(function(){
+  $('.owl-carousel').owlCarousel();
+	stagePadding: 50,
+  loop: true,
+  margin:10,
+  responsive:{
+    0:{
+      items:1
+     },
+    600:{
+     items:3
+     }
+   }
+ })
+});
+});
+</script>
 <% end %>

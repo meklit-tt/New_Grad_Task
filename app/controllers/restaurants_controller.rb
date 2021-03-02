@@ -2,9 +2,10 @@ class RestaurantsController < ApplicationController
   before_action :find_restaurant, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!, only: [:new, :edit]
   #before_action :load_rest, only: [:destroy]
-  DER=3
+PER=3
   def index
-    #  @restaurants = Restaurant.order(:name).page params[:page].per(3)
+
+    #@restaurants = Restaurant.order(created_at: :desc).page(params[:page]).per(PER)
      if params[:category].blank?
       @restaurants = Restaurant.all.order("created_at DESC")
     else
@@ -29,8 +30,8 @@ end
     @restaurant = current_user.restaurants.build(restaurant_params)
     @restaurant.category_id = params[:category_id]
     if @restaurant .save
-    #  RestMailer.rest_mailer(@restaurant.user.admin).deliver
-      flash[:notice] = 'New Restaurant addedS'
+    # RestMailer.rest_mailer(@restaurant).deliver
+      flash[:notice] = 'New Restaurant added'
       redirect_to root_path
     else
       render 'new'
@@ -56,13 +57,11 @@ end
    def restaurant_params
     params.require(:restaurant).permit(:name, :address,
                                        :description, :category_id,
-                                       :rest_img)
+                                       :rest_img, :page)
    end
 
    def find_restaurant
      @restaurant = Restaurant.find(params[:id])
    end
-   def load_rest
-      @restaurant= current_user.admin? ? Restaurant.find(params[:id]) : current_user.restaurants.find(params[:id])
-    end
-  end
+
+end
