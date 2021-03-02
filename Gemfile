@@ -21,6 +21,8 @@ gem 'jbuilder', '~> 2.5'
 
 gem 'simple_form', '~> 5.1'
 
+gem 'webpacker', '~> 5.2', '>= 5.2.1'
+
 gem 'bootstrap-sass', '~> 3.4', '>= 3.4.1'
 
 gem 'devise', '~> 4.7', '>= 4.7.3'
