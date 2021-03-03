@@ -23,6 +23,7 @@
                  <% else %>
                 <li><%= link_to "Log In", new_user_session_path %></li>
               <% end %>
+              <li> <%= link_to "Add category", new_category_path %>
             </ul>
             <ul class="nav navbar-nav navbar-right">
                 <li class="dropdown">
@@ -47,10 +48,7 @@
         </div>
       </nav>
       <p>
-    <%= form_tag restaurants_path, method: :get, class: "navbar-form navbar-left" do %>
-          <%= text_field_tag :search, params[:search], class: "form-control" %>
-          <%= submit_tag "Search", name: nil, class: "btn btn-default" %>
-      <% end %>
+
       </p>
       <footer class="footer">
           <p>©CopyrightMeklit@DIVEINTOCODE-2021 </p>
@@ -59,7 +57,7 @@
     <p class="alert"><%= alert %></p>
    <div class="container">
     <%= yield %>
-    <%= yield :after_js %>
+    
   </div>
 
   </body>

@@ -1,11 +1,12 @@
 class RestaurantsController < ApplicationController
   before_action :find_restaurant, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!, only: [:new, :edit]
-  #before_action :load_rest, only: [:destroy]
+  before_action :set_selet, only: [:new, :edit, :create]
+  before_action :set_search
 PER=3
   def index
-
-    #@restaurants = Restaurant.order(created_at: :desc).page(params[:page]).per(PER)
+    @search = Restaurant.ransack(params[:q])
+    @restaurants = @search.result
      if params[:category].blank?
       @restaurants = Restaurant.all.order("created_at DESC")
     else
@@ -15,15 +16,16 @@ PER=3
 end
   def show
   @restaurants= Restaurant.find(params[:id])
-  if @restaurant.reviews.blank?
+  if @restaurant.eviews.blank?
   @average_review = 0
   else
   @average_review = @restaurant.reviews.average(:rating).round(2)
   end
-end
+  end
+
   def new
     @restaurant = current_user.restaurants.build
-    @categories = Category.all.map{ |c| [c.name, c.id] }
+  #  @categories = Category.all.map{ |c| [c.name, c.id] }
   end
 
   def create
@@ -38,7 +40,7 @@ end
    end
  end
  def edit
-   @categories = Category.all.map{ |c| [c.name, c.id] }
+   #@categories = Category.all.map{ |c| [c.name, c.id] }
  end
 
  def update
@@ -57,11 +59,18 @@ end
    def restaurant_params
     params.require(:restaurant).permit(:name, :address,
                                        :description, :category_id,
-                                       :rest_img, :page)
+                                       :rest_img, :q)
    end
 
    def find_restaurant
      @restaurant = Restaurant.find(params[:id])
    end
 
+   def set_selet
+     @categories = Restaurant.all.map{ |c| [c.name, c.id] }
+  end
+  def set_search
+      @search = Restaurant.ransack(params[:q])
+      @restaurant = @search.result
+    end
 end

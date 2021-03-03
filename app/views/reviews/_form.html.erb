@@ -1,4 +1,4 @@
-<%= simple_form_for([@restaurant, @restaurant.reviews.build]) do |f| %>
+<%= simple_form_for([@restaurants, @restaurant.review.build]) do |f| %>
 <div id="rating-form">
 		<label>Rating</label>
 	</div>
@@ -11,8 +11,5 @@
 		path: '/assets/',
 		scoreName: 'review[rating]'
 	});
-{
 
-
-}
 </script>

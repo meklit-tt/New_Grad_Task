@@ -29,6 +29,8 @@ gem 'devise', '~> 4.7', '>= 4.7.3'
 
 gem 'paperclip', '~> 6.1'
 
+gem 'ransack', '~> 2.4', '>= 2.4.2'
+
 gem 'kaminari', '~> 1.2', '>= 1.2.1'
 
 gem 'jquery-rails', '~> 4.4'

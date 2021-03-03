@@ -1,0 +1,10 @@
+<h1>Categories Index</h1>
+<%= link_to 'Add Categories', new_category_path %>
+
+     <% @categories.each do |category|%>
+  <div container>
+		   <h3><%= category.name%></h3>
+  </div>
+
+
+<% end %>
