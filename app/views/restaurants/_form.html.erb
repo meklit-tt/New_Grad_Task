@@ -1,9 +1,44 @@
-<%= simple_form_for @restaurant, :html => { :multipart => true } do |f| %>
-	<%= select_tag(:category_id, options_for_select(@categories), :prompt => "Select a category") %>
-	<%= f.file_field :rest_image %>
-	<%= f.input :name, label: "Restaurant Name" %>
-	<%= f.input :address %>
-	<%= f.input :description %>
-	<%= f.button :submit, :class => 'btn-custom2' %>
+<%= form_for @restaurant, html: { multipart: true } do |form| %>
+  <% if @restaurant.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= @restaurant.errors.count %> are the errors.</h2>
+      <ul>
+      <% @restaurant.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
 
+
+  <div>
+    <%= form.collection_select :category_id, Category.all, :id, :name,
+                       prompt: true, selected: @categories %>
+  </div>
+
+<div>
+    <%= form.label :name %>
+    <%= form.text_field :name %>
+  </div>
+
+
+  <div>
+    <%= form.label :address %>
+    <%= form.text_field :address %>
+  </div>
+
+  <div>
+    <%= form.label :description %>
+    <%= form.text_area :description %>
+  </div>
+
+
+  <div>
+    <%= form.label :rest_img %>
+    <%= form.file_field :rest_img %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
 <% end %>
