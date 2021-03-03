@@ -1,5 +1,13 @@
 
+<div class="container">
 
+   <%= search_form_for @q do |f| %>
+    <div class="col-lg-4">
+      <%= f.search_field :name_cont, placeholder: 'Search by name ', class: "form-control" %><br>
+    </div>
+<%= f.submit  %>
+</div>
+<% end %>
 <h1 class="current-category"><%= params[:category] %></h1>
 
 <% if @restaurants.count == 0 %>

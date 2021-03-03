@@ -1,9 +1,9 @@
-<%= form_for @restaurant, html: { multipart: true } do |form| %>
-  <% if @restaurant.errors.any? %>
+<%= form_for @restaurants, html: { multipart: true } do |form| %>
+  <% if @restaurants.errors.any? %>
     <div id="error_explanation">
-      <h2><%= @restaurant.errors.count %> are the errors.</h2>
+      <h2><%= @restaurants.errors.count %> are the errors.</h2>
       <ul>
-      <% @restaurant.errors.full_messages.each do |message| %>
+      <% @restaurants.errors.full_messages.each do |message| %>
         <li><%= message %></li>
       <% end %>
       </ul>

@@ -3,7 +3,7 @@
    <div class="edit-book-form">
 
 <h1>Edit Restaurant</h1>
-   <%= simple_form_for @restaurant, :html => {:multipart => true} do |f| %>
+   <%= simple_form_for @restaurants, :html => {:multipart => true} do |f| %>
    <%= f.select :category_id, @categories %>
    <%= f.file_field :rest_img %>
    <%= f.input :name, lable: "Restaurant Name"%>
