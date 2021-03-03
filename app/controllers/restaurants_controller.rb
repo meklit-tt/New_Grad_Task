@@ -2,11 +2,12 @@ class RestaurantsController < ApplicationController
   before_action :find_restaurant, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!, only: [:new, :edit]
   before_action :set_selet, only: [:new, :edit, :create]
-
+  #before_action :set_search
 PER=3
   def index
-       @q = Restaurant.search(params[:q])
-       @restaurants = @q.result(distinct: true).page(params[:page])
+    @q = Restaurant.search(params[:q])
+    #@restaurants = @search.result.page(params[:page])
+    @restaurants = @q.result(distinct: true).page(params[:page])
        if params[:category].blank?
        @restaurants = Restaurant.all.order("created_at DESC")
     else
@@ -62,7 +63,7 @@ end
    def restaurant_params
     params.require(:restaurant).permit(:name, :address,
                                        :description, :category_id,
-                                       :rest_img)
+                                       :rest_img, :q)
   end
 
   def find_restaurant
@@ -72,5 +73,8 @@ end
   def set_selet
      @categories = Restaurant.all.map{ |c| [c.name, c.id] }
   end
-
+  def set_search
+     @search = Restaurant.ransack(params[:q])
+     @restaurants = @search.result
+   end
 end
