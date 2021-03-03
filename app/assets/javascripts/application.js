@@ -17,3 +17,6 @@
 //= require activestorage
 //= require turbolinks
 //= require_tree .
+$(function () {
+$("#mdb-lightbox-ui").load("mdb-addons/mdb-lightbox-ui.html");
+});

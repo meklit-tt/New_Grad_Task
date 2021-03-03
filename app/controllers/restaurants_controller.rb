@@ -7,12 +7,12 @@ PER=3
   def index
     @q = Restaurant.search(params[:q])
     #@restaurants = @search.result.page(params[:page])
-    @restaurants = @q.result(distinct: true).page(params[:page])
+    #@restaurants = @q.result(distinct: true).page(params[:page])
        if params[:category].blank?
-       @restaurants = Restaurant.all.order("created_at DESC")
+       @restaurants = Restaurant.all.order("created_at DESC").page(params[:page]).per(PER)
     else
        @category_id = Category.find_by(name: params[:category]).id
-       @restaurants = Restaurant.where(:category_id => @category_id).order("created_at DESC")
+       @restaurants = Restaurant.where(:category_id => @category_id).order("created_at DESC").page(params[:page])
     end
 end
 
