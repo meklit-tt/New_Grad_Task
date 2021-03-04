@@ -48,14 +48,14 @@ body {
  	text-transform: uppercase;
  }
  .navbar-default {
-   padding-bottom: 10%;
+   padding-bottom: 5%;
    width: 100%;
    background-size: cover;
    background-image: url("header.jpeg");
    background-attachment: fixed;
 
  	.navbar-nav > li > a {
- 		color: #F7FE2E;
+ 		color: #F4D03F ;
  		&:hover {
  			color: darken(#f1c40f, 5%);
  			transition: 0.5s;
@@ -65,7 +65,7 @@ body {
  	.navbar-header {
 
  		.navbar-brand {
- 			color: #F7FE2E;
+ 			color: #F4D03F;
  			letter-spacing: 1.4px;
  		}
 
