@@ -10,5 +10,5 @@ class Restaurant < ApplicationRecord
   validates_attachment_content_type :rest_img, content_type: /\Aimage\/.*\z/
 
 
-  paginates_per 3
+  paginates_per 1
 end

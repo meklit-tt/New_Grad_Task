@@ -1,12 +1,3 @@
-
-
-<h1 class="current-category"><%= params[:category] %></h1>
-
-<% if @restaurants.count == 0 %>
-
-	<h1>There are no restaurant added in this category</h1>
-
-<% else %>
 <div class="owl-carousel">
 <div class="row">
      <% @restaurants.each do |restaurant|%>
@@ -20,4 +11,4 @@
        <% end %>
 
   </div>
-<% end %>
+<%= paginate @restaurants %>

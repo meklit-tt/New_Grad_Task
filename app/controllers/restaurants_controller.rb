@@ -3,17 +3,19 @@ class RestaurantsController < ApplicationController
   before_action :authenticate_user!, only: [:new, :edit]
   before_action :set_selet, only: [:new, :edit, :create]
   #before_action :set_search
-PER=3
+
   def index
-    @q = Restaurant.search(params[:q])
-    #@restaurants = @search.result.page(params[:page])
-    #@restaurants = @q.result(distinct: true).page(params[:page])
+
        if params[:category].blank?
-       @restaurants = Restaurant.all.order("created_at DESC").page(params[:page]).per(PER)
+       @restaurants = Restaurant.all.order("created_at DESC").page(params[:page])
+
     else
        @category_id = Category.find_by(name: params[:category]).id
-       @restaurants = Restaurant.where(:category_id => @category_id).order("created_at DESC").page(params[:page])
+       @restaurants = Restaurant.where(:category_id => @category_id).order("created_at DESC")
     end
+end
+def search
+  @restaurants=Restaurant.where("name LIKE ?", "%" + params[:q] + "%").page(params[:page])
 end
 
   def show

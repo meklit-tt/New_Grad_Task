@@ -25,6 +25,18 @@
               <% end %>
               <li> <%= link_to "Add category", new_category_path %>
             </ul>
+            <ul class="nav navbar-nav">
+            <li>
+              <%= form_tag(search_path, :method => "get", class: 'navbar-form navbar-left') do %>
+              <div class="input-group">
+                <%= search_field_tag :q, params[:q], placeholder: "Search", class: "form-control" %>
+                <div class="input-group-btn">
+                  <%= button_tag "", :class => 'btn btn-info glyphicon glyphicon-search',:name => nil%>
+                </div>
+              </div>
+              <% end %>
+            </li>
+          </ul>
             <ul class="nav navbar-nav navbar-right">
                 <li class="dropdown">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Categories <span class="caret"></span></a>
@@ -46,10 +58,9 @@
              </marquee>
 
         </div>
-      </nav>
-      <p>
 
-      </p>
+      </nav>
+
       <footer class="footer">
           <p>©CopyrightMeklit@DIVEINTOCODE-2021 </p>
         </footer>
@@ -57,6 +68,7 @@
     <p class="alert"><%= alert %></p>
    <div class="container">
     <%= yield %>
+
     <%= yield(:search) %>
   </div>
 

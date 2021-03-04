@@ -1,14 +1,12 @@
 .footer {
-position: fixed;
-left: 0;
+position: absolute;
 bottom: 0;
 width: 100%;
-
-color: white;
+color: blue;
 text-align: center;
-
-
-    }
+padding: 10px;
+background-color:#C6C4C4;
+  }
     .p {
       font-size:30px;
       font-family:'Courier New';
