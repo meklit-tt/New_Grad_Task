@@ -11,11 +11,11 @@ class RestaurantsController < ApplicationController
 
     else
        @category_id = Category.find_by(name: params[:category]).id
-       @restaurants = Restaurant.where(:category_id => @category_id).order("created_at DESC")
+       @restaurants = Restaurant.where(:category_id => @category_id).order("created_at DESC").page(params[:page])
     end
 end
 def search
-  @restaurants=Restaurant.where("name LIKE ?", "%" + params[:q] + "%").page(params[:page])
+  @restaurants=Restaurant.where("Lower(name) LIKE ?", "%" + params[:q] + "%").page(params[:page])
 end
 
   def show
