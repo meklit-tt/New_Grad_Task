@@ -10,6 +10,9 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
    <body>
+     <footer class="footer">
+         <p>©CopyrightMeklit@DIVEINTOCODE-2021 </p>
+       </footer>
 
      <nav class="navbar navbar-default">
        <div class="container">
@@ -29,7 +32,7 @@
             <li>
               <%= form_tag(search_path, :method => "get", class: 'navbar-form navbar-left') do %>
               <div class="input-group">
-                <%= search_field_tag :q, params[:q], placeholder: "Search", class: "form-control" %>
+                <%= search_field_tag :q, params[:q], placeholder: "Restaurant Name", class: "form-control" %>
                 <div class="input-group-btn">
                   <%= button_tag "", :class => 'btn btn-info glyphicon glyphicon-search',:name => nil%>
                 </div>
@@ -50,12 +53,16 @@
           </li>
 
               <% if user_signed_in? %>
-              <li><%= link_to "Add Restaurant", new_restaurant_path %></li>
-              
+              <li><%= link_to "Add Restaurant", new_restaurant_path, class:"navbar-brand" %></li>
+              <li><%= link_to "Profile", user_path(current_user.id) %></li>
               <% if current_user.admin? %>
-              <li><%= link_to "Admin dashboard", rails_admin_path %></li>
+              <li><%= link_to "Admin dashboard", rails_admin_path, class:"navbar-brand" %></li>
+
+
             <% end %>
             <% end %>
+
+
 
             </ul>
              <marquee width="30%" direction="right" height="50px">
@@ -71,9 +78,7 @@
    <div class="container">
     <%= yield %>
 
-    <footer>
-        <p align="center">©CopyrightMeklit@DIVEINTOCODE-2021 </p>
-      </footer>
+
   </div>
 
   </body>

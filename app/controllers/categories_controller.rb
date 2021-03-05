@@ -8,6 +8,7 @@ class CategoriesController < ApplicationController
 
     # GET /categories/1 or /categories/1.json
     def show
+
     end
 
     # GET /categories/new
@@ -49,6 +50,7 @@ class CategoriesController < ApplicationController
 
     # DELETE /categories/1 or /categories/1.json
     def destroy
+        @category= Category.find(params[:id])
       @category.destroy
       respond_to do |format|
         format.html { redirect_to categories_url, notice: "category was successfully destroyed." }

@@ -5,4 +5,5 @@ has_many :reviews
          :recoverable, :rememberable, :validatable
 
 
+
 end

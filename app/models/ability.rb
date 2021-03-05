@@ -7,14 +7,11 @@ class Ability
 
 
     user ||= User.new # guest user (not logged in)
-    if user.superadmin_role?
+    if user.admin?
       can :manage, :all
-    end
-    if user.contributor_role?
+    else
       can :manage, Restaurant
     end
-    if user.user_role?
-      can :manage, Restaurant
-    end
+
   end
 end

@@ -1,2 +1,10 @@
+
+
 <%= @user.email %>
-<%= link_to "edit", edit_user_registration_path %>
+<% if user_signed_in? %>
+  <% if @user == current_user %>
+<%= link_to "Edit User_name", edit_user_path %>
+<%= link_to "Update Use_account", edit_user_registration_path %>
+<% end %>
+<% end %>
+ <%= link_to "Back", root_path, class: "btn btn-custom" %>

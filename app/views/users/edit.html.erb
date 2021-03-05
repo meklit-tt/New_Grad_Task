@@ -1,0 +1,13 @@
+<%= simple_form_for @user, :html => { :multipart => true } do |form| %>
+
+
+
+  <div>
+    <%= form.label :email %>
+    <%= form.text_field :email %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>

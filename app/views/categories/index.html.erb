@@ -1,10 +1,13 @@
 <h1>Categories Index</h1>
-<%= link_to 'Add Categories', new_category_path %>
+<h1><button type="button" class="btn btn-secondary"><%= link_to 'Add Categories', new_category_path %></h1></button>
+<table>
+
 
      <% @categories.each do |category|%>
-  <div container>
-		   <h3><%= category.name%></h3>
-  </div>
-
-
+<tr>
+		 <td><%= category.name%></td>
+<td><button type="button" class="btn btn-secondary"><%= link_to 'Show', category %></button></td>
+</tr>
 <% end %>
+</table>
+ <%= link_to "Back to Home", root_path, class: "btn btn-custom" %>

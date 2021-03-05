@@ -29,6 +29,9 @@ gem 'bootstrap-sass', '~> 3.4', '>= 3.4.1'
 
 gem 'devise', '~> 4.7', '>= 4.7.3'
 
+gem 'omniauth', '~> 2.0', '>= 2.0.3'
+gem 'omniauth-google-oauth2', '~> 0.8.1'
+
 gem 'paperclip', '~> 6.1'
 
 gem 'rails_admin', '~> 2.1'

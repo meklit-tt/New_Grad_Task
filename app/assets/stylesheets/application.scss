@@ -48,14 +48,14 @@ body {
  	text-transform: uppercase;
  }
  .navbar-default {
-   padding-bottom: 5%;
+   padding-bottom: 10%;
    width: 100%;
    background-size: cover;
-   background-image: url("header.jpeg");
+   background-image: url("lost.jpeg");
    background-attachment: fixed;
 
  	.navbar-nav > li > a {
- 		color: #F4D03F ;
+ 		color: #FFA500;
  		&:hover {
  			color: darken(#f1c40f, 5%);
  			transition: 0.5s;
@@ -65,8 +65,8 @@ body {
  	.navbar-header {
 
  		.navbar-brand {
- 			color: #F4D03F;
- 			letter-spacing: 1.4px;
+ 			color:#FFA500;
+ 			letter-spacing: 1px;
  		}
 
  	}
