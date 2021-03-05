@@ -51,7 +51,12 @@
 
               <% if user_signed_in? %>
               <li><%= link_to "Add Restaurant", new_restaurant_path %></li>
-              <% end %>
+              
+              <% if current_user.admin? %>
+              <li><%= link_to "Admin dashboard", rails_admin_path %></li>
+            <% end %>
+            <% end %>
+
             </ul>
              <marquee width="30%" direction="right" height="50px">
               <p class="p">Welcome! to Restaurant review site</p>
