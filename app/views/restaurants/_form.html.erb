@@ -12,6 +12,7 @@
 
 
   <div>
+    <%= form.label :Category %>
     <%= form.collection_select :category_id, Category.all, :id, :name,
                        prompt: true, selected: @categories %>
   </div>

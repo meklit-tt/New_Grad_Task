@@ -54,11 +54,11 @@
 			<%= link_to "Edit Restarant", edit_restaurant_path(@restaurants), class: "btn btn-custom" %>
 			<% end %>
 
-			<% if @restaurants.user_id && current_user.admin == true %>
+			<%# if @restaurants.user_id && current_user.admin == true %>
 			<%= link_to "Delete Restaurant", restaurant_path(@restaurants), method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-custom" %>
 
 		<% end %>
-<% end %>
+<%# end %>
 
 </div>
 
